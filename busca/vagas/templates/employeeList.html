@@ -14,9 +14,9 @@
       <tbody>
         {% for employee in employees %}
         <tr>
-          <td>{{ employee.name }}</td>
-          <td>R$ {{ employee.dailyRate}}</td>
-          <td>{{ employee.email }}</td>
+          <td>{{ employee.Nome }}</td>
+          <td>R$ {{ employee.Valor_da_Diária}}</td>
+          <td>{{ employee.Email }}</td>
           <td>
             <a type="button" class="btn btn-warning" href="#"
               ><i class="bi-pencil-fill"></i
@@ -29,7 +29,7 @@
         {% endfor %}
       </tbody>
     </table>
-    <a type="button" class="btn btn-success" href="#">Criar Novo</a>
+    <a type="button" class="btn btn-success" href="{%url 'employee-create' %}">Criar Novo</a>
   </section>
 </div>
 {% endblock %}

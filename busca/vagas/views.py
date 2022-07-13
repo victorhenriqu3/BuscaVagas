@@ -22,3 +22,11 @@ def employeeCreate(request):
         form = EmployeeForm()  
         
     return render(request,'employeeCreate.html',{'form':form})  
+
+def employeeDelete(request ,id):
+    employees = Employee.objects.get(id=id)
+    try:
+        employees.delete()
+    except:
+        pass
+    return redirect('employee-list')

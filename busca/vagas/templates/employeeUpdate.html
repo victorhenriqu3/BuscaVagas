@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% block content %} {% load crispy_forms_tags %}
+
+<div class="card-body">
+  <section class="container">
+    <h1 class="text-center m-5">Atualizar Funcionário</h1>
+    <form method="post">
+      {% csrf_token %} {{ form|crispy }}
+          <div class="row">
+            <div class="col">
+              <button type="submit" class="w-100 btn btn-success g-col-6">
+                Atualizar
+              </button>
+            </div>
+            <div class="col">
+              <a
+                type="button"
+                class="btn btn-danger w-100"
+                href="{%url 'employee-list' %}"
+              >
+                Cancelar
+              </a>
+            </div>
+          </div>
+    </form>
+  </section>
+</div>
+{% endblock %}

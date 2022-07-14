@@ -18,7 +18,7 @@
           <td>R$ {{ employee.Valor_da_Diária}}</td>
           <td>{{ employee.Email }}</td>
           <td>
-            <a type="button" class="btn btn-warning" href="#"
+            <a type="button" class="btn btn-warning" href="/employee-update/{{ employee.id }}"
               ><i class="bi-pencil-fill"></i
             ></a>
             <a type="button" class="btn btn-danger" href="/employee-delete/{{ employee.id }}">

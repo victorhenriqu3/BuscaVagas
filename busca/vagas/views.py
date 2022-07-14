@@ -16,7 +16,7 @@ def employeeCreate(request):
             try:  
                 form.save() 
                 return redirect('employee-list')  
-            except:
+            except Exception as e:
                 pass
     else:  
         form = EmployeeForm()  
@@ -30,3 +30,16 @@ def employeeDelete(request ,id):
     except:
         pass
     return redirect('employee-list')
+
+def employeeUpdate(request, id):  
+    employee = Employee.objects.get(id=id)
+    form = EmployeeForm(initial={'Nome':  employee.Nome,'Valor_da_Diária': employee.Valor_da_Diária, 'CPF': employee.CPF, 'Email': employee.Email, 'Data_de_Nascimento': employee.Data_de_Nascimento, 'Descrição_das_Atividades': employee.Descrição_das_Atividades  })
+    if request.method == "POST":  
+        form = EmployeeForm(request.POST, instance=employee)  
+        if form.is_valid():  
+            try:  
+                form.save() 
+                return redirect('/')  
+            except Exception as e: 
+                pass    
+    return render(request,'employeeUpdate.html',{'form':form}) 
